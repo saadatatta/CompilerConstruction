@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\EOperatorType.cs" />
+    <Compile Include="Enums\EAddOperator.cs" />
+    <Compile Include="Enums\EKeywords.cs" />
+    <Compile Include="Enums\EMultiplyOperator.cs" />
+    <Compile Include="Enums\ENumber.cs" />
+    <Compile Include="Enums\ETokenType.cs" />
     <Compile Include="Enums\ERelationalOperator.cs" />
     <Compile Include="FileHandling\FileHandler.cs" />
     <Compile Include="LexicalAnalysis\LexicalAnalyzer.cs" />

@@ -251,7 +251,7 @@ namespace CompilerConstruction.LexicalAnalysis
                             continue;
                         }
 
-                        if (characterToRead is '-')
+                        if (characterToRead is '/')
                         {
                             tokensList.Add(new Token(ETokenType.MultiplyOperator, EMultiplyOperator.Divide));
                             continue;
@@ -274,6 +274,416 @@ namespace CompilerConstruction.LexicalAnalysis
                         }
                     }   //Assignment operator
 
+                    #region keywords handling
+
+                    if (characterToRead is 'a')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'n')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'd')
+                            {
+                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.And));
+                                continue;
+                            }
+                        }
+
+                        if(characterToRead is 'r')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if(characterToRead is 'r')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if(characterToRead is 'a')
+                                {
+                                    characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                    if(characterToRead is 'y')
+                                    {
+                                        tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Array));
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (characterToRead is 'b')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'e')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'g')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if (characterToRead is 'i')
+                                {
+                                    characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                    if (characterToRead is 'n')
+                                    {
+                                        tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Array));
+                                        continue;
+                                    }
+                                }
+                               
+                            }
+                        }
+                    }
+
+                    if(characterToRead is 'd')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+                        
+                        if(characterToRead is 'o')
+                        {
+                            tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Do));
+                            continue;
+                        }
+
+                        if(characterToRead is 'i')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if(characterToRead is 'v')
+                            {
+                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Div));
+                                continue;
+                            }
+                        }
+                    }
+
+                    if(characterToRead is 'e')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if(characterToRead is 'n')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if(characterToRead is 'd')
+                            {
+                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.End));
+                                continue;
+                            }
+                        }
+
+                        if (characterToRead is 'l')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if(characterToRead is 's')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if(characterToRead is 'e')
+                                {
+                                    tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Else));
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+
+                    if(characterToRead is 'f')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if(characterToRead is 'u')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if(characterToRead is 'n')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if(characterToRead is 'c')
+                                {
+                                    characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                    if(characterToRead is 't')
+                                    {
+                                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                        if(characterToRead is 'i')
+                                        {
+                                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                            if(characterToRead is 'o')
+                                            {
+                                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                                if(characterToRead is 'n')
+                                                {
+                                                    tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Function));
+                                                    continue;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if(characterToRead is 'i')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if(characterToRead is 'f')
+                        {
+                            tokensList.Add(new Token(ETokenType.Keyword, EKeywords.If));
+                            continue;
+                        }
+
+                        if (characterToRead is 'n')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 't')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if (characterToRead is 'e')
+                                {
+                                    characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                    if (characterToRead is 'g')
+                                    {
+                                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                        if (characterToRead is 'e')
+                                        {
+                                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                            if (characterToRead is 'r')
+                                            {
+                                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Integer));
+                                                continue;
+                                            }
+                                        }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    if (characterToRead is 'm')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'o')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'd')
+                            {
+                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Mod));
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (characterToRead is 'n')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'o')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 't')
+                            {
+                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Not));
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (characterToRead is 'o')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'r')
+                        {
+                            tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Or));
+                            continue;
+                        }
+
+                        if(characterToRead is 'f')
+                        {
+                            tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Of));
+                            continue;
+                        }
+
+                    }
+
+                    if (characterToRead is 'p')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'r')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'o')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if (characterToRead is 'g')
+                                {
+                                    characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                    if (characterToRead is 'r')
+                                    {
+                                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                        if (characterToRead is 'a')
+                                        {
+                                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                            if (characterToRead is 'm')
+                                            {
+                                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Program));
+                                                continue;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (characterToRead is 'c')
+                                {
+                                    characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                    if (characterToRead is 'e')
+                                    {
+                                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                        if (characterToRead is 'd')
+                                        {
+                                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                            if (characterToRead is 'u')
+                                            {
+                                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+                                                {
+                                                    if (characterToRead is 'r')
+                                                    {
+                                                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                                        if (characterToRead is 'e')
+                                                        {
+                                                            tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Procedure));
+                                                            continue;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (characterToRead is 'r')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'e')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'a')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if (characterToRead is 'l')
+                                {
+                                    tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Real));
+                                    continue;
+                                    
+                                }
+                            }
+                        }
+                    }
+
+                    if (characterToRead is 't')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'h')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'e')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if (characterToRead is 'n')
+                                {
+                                    tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Then));
+                                    continue;
+
+                                }
+                            }
+                        }
+                    }
+
+                    if (characterToRead is 'v')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'a')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'r')
+                            {
+                                tokensList.Add(new Token(ETokenType.Keyword, EKeywords.Var));
+                                continue;
+
+                            }
+                            
+                        }
+                    }
+
+                    if (characterToRead is 'w')
+                    {
+                        characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                        if (characterToRead is 'h')
+                        {
+                            characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                            if (characterToRead is 'i')
+                            {
+                                characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                if (characterToRead is 'l')
+                                {
+                                    characterToRead = dataToRead.Peek() > 0 ? (char)dataToRead.Read() : '\0';
+
+                                    if (characterToRead is 'e')
+                                    {
+                                        tokensList.Add(new Token(ETokenType.Keyword, EKeywords.While));
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    #endregion
                 }
 
             }

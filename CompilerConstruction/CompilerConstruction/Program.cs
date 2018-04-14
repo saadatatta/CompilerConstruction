@@ -12,11 +12,16 @@ namespace CompilerConstruction
     {
         static void Main(string[] args)
         {
+            
+
+            KeywordHashing keywordHashing = new KeywordHashing(Keyword.keywords);
+
             FileHandler fileHandler = new FileHandler();
             StreamReader reader =  fileHandler.ReadData();
 
-            LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer(reader);
+            LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer(reader,keywordHashing);
             lexicalAnalyzer.PerformAnalysis();
+            lexicalAnalyzer.print();
 
             
         }

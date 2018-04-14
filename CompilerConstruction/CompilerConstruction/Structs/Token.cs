@@ -13,5 +13,16 @@ namespace CompilerConstruction.Structs
             this.operatorType = operatorType;
             this.operatorValue = operatorValue;
         }
+
+        public ETokenType OperatorType
+        {
+            get { return operatorType; }
+        }
+
+        public Object OperatorValue
+        {
+            get { return operatorValue; }
+        }
+
     }
 }

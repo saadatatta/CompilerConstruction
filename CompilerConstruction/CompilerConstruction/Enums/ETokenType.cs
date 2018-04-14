@@ -13,6 +13,7 @@ namespace CompilerConstruction.Enums
         AddOperator,
         MultiplyOperator,
         AssignmentOperator,
-        Keyword
+        Keyword,
+        Identifier
     }
 }
